@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+      POSTGRES_DB: habitdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  api:
+    build: ./backend
+    environment:
+      NODE_ENV: development
+      PORT: 4000
+      DATABASE_URL: postgresql://app:app@db:5432/habitdb?schema=public
+      JWT_SECRET: super_secret_change_me
+    depends_on:
+      - db
+    ports:
+      - "4000:4000"
+
+  web:
+    build: ./frontend
+    environment:
+      VITE_API_URL: http://localhost:4000
+    depends_on:
+      - api
+    ports:
+      - "5173:5173"
+
+volumes:
+  db_data:

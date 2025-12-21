@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String  @id @default(uuid())
+  email     String  @unique
+  password  String
+  habits    Habit[]
+  createdAt DateTime @default(now())
+}
+
+model Habit {
+  id           String         @id @default(uuid())
+  userId       String
+  user         User           @relation(fields: [userId], references: [id])
+  name         String
+  description  String?
+  targetPerDay Int            @default(1)
+  active       Boolean        @default(true)
+  createdAt    DateTime       @default(now())
+  checkins     HabitCheckin[]
+}
+
+model HabitCheckin {
+  id       String   @id @default(uuid())
+  habitId  String
+  habit    Habit    @relation(fields: [habitId], references: [id])
+  date     DateTime
+  count    Int      @default(1)
+
+  @@unique([habitId, date])
+}
