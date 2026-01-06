@@ -31,18 +31,15 @@ export default function HabitRow({
         <button className="btn" disabled={busy} onClick={onMinus}>-</button>
         <button className="btn btnPrimary" disabled={busy} onClick={onPlus}>+</button>
 
-        <select
-          className="input"
-          value={habit.targetPerDay}
-          onChange={(e) => onUpdateTarget(e.target.value)}
-          style={{ width: 110 }}
-        >
-          {Array.from({ length: 10 }).map((_, i) => (
-            <option key={i + 1} value={i + 1}>
-              cel {i + 1}
-            </option>
-          ))}
-        </select>
+        <input
+  	  className="input"
+  	  type="number"
+  	  min={1}
+  	  max={50}
+  	  value={habit.targetPerDay}
+  	  onChange={(e) => onUpdateTarget(e.target.value)}
+  	  style={{ width: 100 }}
+	/>
 
         <button className="btn btnDanger" disabled={busy} onClick={onArchive}>
           Archiwizuj

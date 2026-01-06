@@ -19,13 +19,9 @@ export default function ActivityChart({ data }) {
           <XAxis dataKey="date" />
           <YAxis allowDecimals={false} />
           <Tooltip
-            formatter={(value, name) => {
-              if (name === "done") {
-                return [`Wykonano: ${value}`, ""];
-              }
-             return [value, name];
-             }}
-           />
+  	    formatter={(value) => [value, "Wykonano"]}
+ 	  />
+
 
           <Bar dataKey="done" radius={[8, 8, 0, 0]}>
             {data.map((e, idx) => (
