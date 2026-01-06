@@ -19,7 +19,7 @@ export default function HabitRow({
         <div className="habitName">{habit.name}</div>
         <div className="sub">
           Cel: {habit.targetPerDay} / dzień • Dziś: {count}/{habit.targetPerDay}
-          {stat ? ` • streak: ${stat.currentStreak} (Rekord: ${stat.longestStreak}) • ${stat.completionRate}%` : ""}
+          {stat ? ` • Streak: ${stat.currentStreak} (Rekord: ${stat.longestStreak}) • (Średni postęp z 30 dni: ${stat.completionRate}%)` : ""}
         </div>
       </div>
 

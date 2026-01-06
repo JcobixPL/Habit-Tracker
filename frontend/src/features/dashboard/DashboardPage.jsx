@@ -244,7 +244,7 @@ export default function DashboardPage() {
               placeholder="np. Woda, czytanie, siłownia..."
             />
 
-            <div className="grid2">
+
               <div>
                 <div className="sub" style={{ marginBottom: 6 }}>
                   Cel dzienny
@@ -258,43 +258,9 @@ export default function DashboardPage() {
                   onChange={(e) => setNewTarget(e.target.value)}
                 />
               </div>
-
-              <div>
-                <div className="sub" style={{ marginBottom: 6 }}>
-                  Data
-                </div>
-                <input
-                  className="input"
-                  type="date"
-                  value={selectedDate}
-                  onChange={(e) => setSelectedDate(e.target.value)}
-                />
-              </div>
-            </div>
-
             <button className="btn btnPrimary" disabled={busy} onClick={addHabit}>
               Dodaj
             </button>
-
-            <div className="hr" />
-
-            <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-              <input
-                className="input"
-                placeholder="Szukaj nawyku..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-
-              <label style={{ display: "flex", gap: 6, alignItems: "center" }}>
-                <input
-                  type="checkbox"
-                  checked={showArchived}
-                  onChange={(e) => setShowArchived(e.target.checked)}
-                />
-                <span className="sub">Pokaż archiwalne</span>
-              </label>
-            </div>
 
             {error && <div className="error">{error}</div>}
           </div>
@@ -329,6 +295,25 @@ export default function DashboardPage() {
             />
           </div>
         </div>
+
+	<div style={{ display: "flex", gap: 10, alignItems: "center", marginTop: 10 }}>
+  <input
+    className="input"
+    placeholder="Szukaj nawyku..."
+    value={search}
+    onChange={(e) => setSearch(e.target.value)}
+    style={{ flex: 1 }}
+  />
+
+  <label style={{ display: "flex", gap: 6, alignItems: "center", whiteSpace: "nowrap" }}>
+    <input
+      type="checkbox"
+      checked={showArchived}
+      onChange={(e) => setShowArchived(e.target.checked)}
+    />
+    <span className="sub">Pokaż archiwalne</span>
+  </label>
+</div>
 
         <div className="hr" />
 
