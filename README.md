@@ -1,44 +1,84 @@
-# Habit Tracker
+\# Habit Tracker
+
+
 
 Prosta aplikacja webowa do śledzenia codziennych nawyków.
 
----
 
-## Funkcje
-
-- rejestracja i logowanie użytkownika
-- dodawanie nawyków z dziennym targetem
-- codzienne check-iny (+1 / cofnij)
-- archiwizacja i przywracanie nawyków
-- statystyki i wykres aktywności
-- oznaczenie „Perfect Day”
 
 ---
 
-## Technologie
 
-- React + Vite
-- JavaScript
-- Node.js + Express
-- Prisma ORM
-- PostgreSQL
-- Docker
+
+\## Funkcje
+
+
+
+\- rejestracja i logowanie użytkownika
+
+\- dodawanie nawyków z dziennym targetem
+
+\- codzienne check-iny (+1 / cofnij)
+
+\- archiwizacja i przywracanie nawyków
+
+\- statystyki i wykres aktywności
+
+\- oznaczenie „Perfect Day”
+
+
 
 ---
 
-## Perfect Day
+
+
+\## Technologie
+
+
+
+\- React + Vite
+
+\- JavaScript
+
+\- Node.js + Express
+
+\- Prisma ORM
+
+\- PostgreSQL
+
+\- Docker
+
+
+
+---
+
+
+
+\## Perfect Day
+
+
 
 Perfect Day to dzień, w którym wszystkie aktywne nawyki zostały wykonane w 100%.  
+
 Na wykresie jest oznaczony zielonym słupkiem.
+
+
 
 ---
 
-## Uruchamianie
+
+
+\## Uruchamianie
+
+
 
 ```bash
+
 docker compose up --build
 
-```
-
 Frontend: http://localhost:5173
-Swagger API: http://localhost:4000/api-docs/
+
+Swagger: http://localhost:4000/api-docs/
+
+
+

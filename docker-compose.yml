@@ -9,27 +9,37 @@ services:
       - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app -d habitdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   api:
-    build: ./backend
+    build:
+      context: ./backend
+    env_file:
+      - ./backend/.env
     environment:
       NODE_ENV: development
-      PORT: 4000
+      # W Dockerze host bazy to NAZWA SERWISU: "db"
       DATABASE_URL: postgresql://app:app@db:5432/habitdb?schema=public
-      JWT_SECRET: super_secret_change_me
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     ports:
       - "4000:4000"
 
   web:
-    build: ./frontend
-    environment:
-      VITE_API_URL: http://localhost:4000
+    build:
+      context: ./frontend
     depends_on:
       - api
     ports:
       - "5173:5173"
+    # jeśli frontend korzysta z Vite i czasem nie łapie hosta:
+    environment:
+      - VITE_API_URL=http://localhost:4000
 
 volumes:
   db_data:
