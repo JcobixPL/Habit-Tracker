@@ -18,7 +18,14 @@ export default function ActivityChart({ data }) {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" />
           <YAxis allowDecimals={false} />
-          <Tooltip />
+          <Tooltip
+            formatter={(value, name) => {
+              if (name === "done") {
+                return [`Wykonano: ${value}`, ""];
+              }
+             return [value, name];
+             }}
+           />
 
           <Bar dataKey="done" radius={[8, 8, 0, 0]}>
             {data.map((e, idx) => (

@@ -515,10 +515,6 @@ function DashboardPage({ onLogout }) {
               <div className="panelTitle">
                 Aktywność (ukończone nawyki / dzień)
               </div>
-              <div className="sub">
-                Perfect Day = dzień, w którym wszystkie aktywne nawyki były
-                wykonane.
-              </div>
             </div>
             <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
               <select

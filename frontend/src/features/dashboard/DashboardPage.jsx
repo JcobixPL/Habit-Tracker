@@ -208,11 +208,7 @@ export default function DashboardPage() {
         <div className="panel">
           <div className="panelHeader">
             <div>
-              <div className="panelTitle">Aktywność (ukończone nawyki / dzień)</div>
-              <div className="sub">
-                Perfect Day = dzień, w którym wszystkie aktywne nawyki były wykonane.
-              </div>
-            </div>
+              <div className="panelTitle">Aktywność (ukończone nawyki / dzień)</div>            </div>
 
             <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
               <div className="sub">Zakres:</div>
